@@ -5995,7 +5995,7 @@ const VaultClient = __webpack_require__(484);
 
 
     const vault = VaultClient({
-      apiVersion: 'v1',
+      apiVersion: 'v2',
       endpoint: endpoint,
       token: token
     });
@@ -6003,7 +6003,7 @@ const VaultClient = __webpack_require__(484);
 
     const kv = core.getInput('kv');
 
-    console.log("kv = ", kv);
+    console.log("neeki kv = ", kv);
 
     const value = await vault.read('secret/hello')
 
