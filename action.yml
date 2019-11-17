@@ -10,9 +10,9 @@ inputs:
     required: true
     default: ''
   kv:
-    description: Value Keys
+    description: Path of kv store secret
     required: false
-    default: ''
+    default: false
 outputs:
 runs:
   using: node12

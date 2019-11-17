@@ -1,5 +1,3 @@
-process.env.DEBUG = 'node-vault'; // switch on debug mode
-
 const core = require('@actions/core');
 const VaultClient = require('node-vault');
 
@@ -18,7 +16,10 @@ const VaultClient = require('node-vault');
     const res = await vault.read(kv)
     const secret = Object.keys(res.data);
 
-    secret.map((key) => core.exportVariable(key, res.data[key]));
+    secret.map((key) => {
+      core.setSecret(res.data[key]);
+      core.exportVariable(key, res.data[key])
+    });
   } catch (error) {
     core.setFailed(error.message);
   }

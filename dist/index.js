@@ -5985,8 +5985,6 @@ module.exports = function generate_format(it, $keyword, $ruleType) {
 /* 133 */
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-process.env.DEBUG = 'node-vault'; // switch on debug mode
-
 const core = __webpack_require__(310);
 const VaultClient = __webpack_require__(484);
 

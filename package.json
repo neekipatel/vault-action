@@ -13,6 +13,11 @@
   "author": "Neeki Patel",
   "license": "MIT",
   "homepage": "https://github.com/neekipatel/vault-action",
+  "scripts": {
+    "build": "ncc build src/index.js -o dist/",
+    "ngrok": "ngrok 8200:8200",
+    "docker": "docker-compose up"
+  },
   "devDependencies": {
   },
   "dependencies": {
