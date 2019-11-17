@@ -6005,7 +6005,10 @@ const VaultClient = __webpack_require__(484);
     const res = await vault.read(kv)
     const secret = Object.keys(res.data);
 
-    secret.map((key) => core.exportVariable(key, res.data[key]));
+    secret.map((key) => {
+      core.setSecret(key);
+      core.exportVariable(key, res.data[key])
+    });
   } catch (error) {
     core.setFailed(error.message);
   }
