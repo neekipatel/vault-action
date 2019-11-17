@@ -6007,7 +6007,9 @@ const VaultClient = __webpack_require__(484);
 
     const value = await vault.read('secret/hello')
 
-    core.exportVariable('hello', value);
+    console.log("value = ", value);
+
+    core.exportVariable('hello', 'value');
     core.setOutput('hi', 'their');
   } catch (error) {
     core.setFailed(error.message);

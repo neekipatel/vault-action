@@ -20,6 +20,8 @@ const VaultClient = require('node-vault');
 
     const value = await vault.read('secret/hello')
 
+    console.log("value = ", value);
+
     core.exportVariable('hello', 'value');
     core.setOutput('hi', 'their');
   } catch (error) {
