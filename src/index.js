@@ -15,11 +15,10 @@ const VaultClient = require('node-vault');
     });
 
     const kv = core.getInput('kv');
-    const secret = await vault.read(kv)
-    Object.keys(secret.data).map((key, value) => {
-      console.log('kv =', key, value);
-      core.exportVariable(key, value)
-    });
+    const res = await vault.read(kv)
+    const secret = Object.keys(res.data);
+
+    secret.map((key) => core.exportVariable(key, res.data[key]));
   } catch (error) {
     core.setFailed(error.message);
   }
