@@ -1,0 +1,22 @@
+{
+  "name": "vault-action",
+  "version": "1.0.0",
+  "description": "Github Action to add Hashicorp Vault's secrets to environment variables",
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/neekipatel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neekipatel/vault-action.git"
+  },
+  "author": "Neeki Patel",
+  "license": "MIT",
+  "homepage": "https://github.com/neekipatel/vault-action",
+  "devDependencies": {
+  },
+  "dependencies": {
+    "@actions/core": "1.2.0",
+    "node-vault": "0.9.11"
+  }
+}

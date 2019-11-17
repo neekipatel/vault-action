@@ -1,0 +1,19 @@
+name: Hashicorp Vault Action
+description: Add Hashicorp Vault's secrets to environment variables
+inputs:
+  endpoint:
+    description: Value URL
+    required: true
+    default: http://127.0.0.1:8200
+  token:
+    description: Value Token
+    required: true
+    default: ''
+  kv:
+    description: Value Keys
+    required: false
+    default: ''
+outputs:
+runs:
+  using: node12
+  main: dist/index.js
