@@ -1,3 +1,5 @@
+process.env.DEBUG = 'node-vault'; // switch on debug mode
+
 const core = require('@actions/core');
 const VaultClient = require('node-vault');
 
@@ -6,24 +8,18 @@ const VaultClient = require('node-vault');
     const endpoint = core.getInput('endpoint', { required: true });
     const token = core.getInput('token', { required: true });
 
-
     const vault = VaultClient({
       apiVersion: 'v1',
       endpoint: endpoint,
       token: token
     });
 
-
     const kv = core.getInput('kv');
-
-    console.log("kv = ", kv);
-
-    const value = await vault.read('secret/hello')
-
-    console.log("value = ", value);
-
-    core.exportVariable('hello', 'value');
-    core.setOutput('hi', 'their');
+    const secret = await vault.read(kv)
+    Object.keys(secret.data).map((key, value) => {
+      console.log('kv =', key, value);
+      core.exportVariable(key, value)
+    });
   } catch (error) {
     core.setFailed(error.message);
   }
